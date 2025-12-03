@@ -104,12 +104,13 @@
       <include>
         <!-- Gazebo Fuel에 올라온 Warehouse 모델 URI -->
         <uri>
-          https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Warehouse
+          https://fuel.gazebosim.org/1.0/F3rn4nd0P35504/models/warehouse
         </uri>
       </include>
       <!-- 필요하면 위치/회전 지정 -->
-      <pose>13 0 0 0 0 1.57079633</pose>
+      <pose>13 1.1770987997255328e-26 0.11369988322257996 0 0 1.5707999672671693</pose>
     </model>
+
     <model name="box1">
       <pose>23 0 1 0 0 0</pose>
       <static>true</static>
@@ -219,7 +220,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -227,7 +228,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -246,7 +247,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -254,7 +255,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -273,7 +274,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -281,7 +282,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -300,7 +301,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -308,7 +309,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -327,7 +328,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -335,7 +336,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -354,7 +355,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -362,7 +363,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -381,7 +382,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -389,7 +390,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -408,7 +409,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -416,7 +417,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -435,7 +436,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -443,7 +444,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -462,7 +463,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -470,7 +471,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -489,7 +490,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -497,7 +498,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -516,7 +517,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -524,7 +525,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -543,7 +544,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -551,7 +552,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -570,7 +571,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
         </collision>
@@ -578,7 +579,7 @@
           <geometry>
             <cylinder>
               <radius>0.2</radius>
-              <length>2.0</length>
+              <length>7.0</length>
             </cylinder>
           </geometry>
           <material>
@@ -589,5 +590,66 @@
         </visual>
       </link>
     </model>
+
+    <model name="shelf_1">
+      <pose>0.62590402364730835 11.078499794006348 0.079459927976131439 0 0 0</pose>
+      <static>true</static>
+      <include>
+      <uri>
+      https://fuel.gazebosim.org/1.0/sirozikas/models/Shelf with ARUco boxes
+      </uri>
+      </include>
+    </model>
+      <model name="shelf_2">
+      <pose>25.406106948852539 -11.669599533081055 0.079459898173809052 0 0 0</pose>
+      <static>true</static>
+      <include>
+      <uri>
+      https://fuel.gazebosim.org/1.0/sirozikas/models/Shelf with ARUco boxes
+      </uri>
+      </include>
+    </model>
+      <model name="shelf_3">
+      <pose>0.62590402364730835 -11.670392990112305 0.079459898173809052 0 0 0</pose>
+      <static>true</static>
+      <include>
+      <uri>
+      https://fuel.gazebosim.org/1.0/sirozikas/models/Shelf with ARUco boxes
+      </uri>
+      </include>
+    </model>
+      <model name="shelf_4">
+      <pose>25.159152984619141 11.078499794006348 0.079459898173809052 0 0 0</pose>
+      <static>true</static>
+      <include>
+      <uri>
+      https://fuel.gazebosim.org/1.0/sirozikas/models/Shelf with ARUco boxes
+      </uri>
+      </include>
+    </model>
+
+      <model name="shelf_5">
+      <pose>-11.949213981628418 -0.86538797616958618 0.71789616346359253 -0.025920701211004114 -5.2296224295478311e-10 -1.5756700124931335</pose>
+      <static>true</static>
+      <include>
+      <uri>
+      https://fuel.gazebosim.org/1.0/sirozikas/models/Shelf with ARUco boxes
+      </uri>
+      </include>
+    </model>
+
+      <model name="shelf_6">
+      <pose>37.671100616455078 0.41223451495170593 0.079459898173809052 0 0 1.5628500233190858</pose>
+      <static>true</static>
+      <include>
+      <uri>
+      https://fuel.gazebosim.org/1.0/sirozikas/models/Shelf with ARUco boxes
+      </uri>
+      </include>
+    </model>
+
+
+
+    
   </world>
 </sdf>
