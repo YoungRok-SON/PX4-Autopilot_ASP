@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.9">
+  <model name="x500_d435i">
+
+    <include merge="true">
+      <uri>x500</uri>
+    </include>
+
+    <include merge="true">
+      <uri>model://d435i</uri>
+      <pose>.12 .03 .242 0 0 0</pose>
+    </include>
+
+    <joint name="D435iJoint" type="fixed">
+      <parent>base_link</parent>
+      <child>d435i_link</child>
+      <pose relative_to="base_link">.12 .03 .242 0 0 0</pose>
+    </joint>
+  </model>
+</sdf>
