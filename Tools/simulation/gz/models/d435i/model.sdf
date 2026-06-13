@@ -102,6 +102,64 @@
         </camera>
       </sensor>
 
+      <!-- Left IR camera (mimics real D435i /infra1). Grayscale global-shutter-like
+           pair for stereo-inertial VINS, closing the sim-to-real gap with the
+           physical D435i. Baseline 50 mm along the link Y axis, centered on the
+           RGB sensor. Intrinsics kept consistent with this SDF so the VINS stereo
+           config is correct-by-construction. -->
+      <sensor name="d435i_infra1" type="camera">
+        <pose>-0.0202141 0.0300596 0.0114047 0.002406 -0.002114 0.013799</pose>
+        <always_on>true</always_on>
+        <update_rate>30</update_rate>
+        <topic>/d435i/infra1/image</topic>
+        <camera>
+          <horizontal_fov>1.387</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>L8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <intrinsics>
+            <fx>385.0</fx>
+            <fy>385.0</fy>
+            <cx>320.0</cx>
+            <cy>240.0</cy>
+            <s>0</s>
+          </intrinsics>
+        </camera>
+      </sensor>
+
+      <!-- Right IR camera (mimics real D435i /infra2), 50 mm to the right of infra1. -->
+      <sensor name="d435i_infra2" type="camera">
+        <pose>-0.0202141 -0.0199404 0.0114047 0.002406 -0.002114 0.013799</pose>
+        <always_on>true</always_on>
+        <update_rate>30</update_rate>
+        <topic>/d435i/infra2/image</topic>
+        <camera>
+          <horizontal_fov>1.387</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>L8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <intrinsics>
+            <fx>385.0</fx>
+            <fy>385.0</fy>
+            <cx>320.0</cx>
+            <cy>240.0</cy>
+            <s>0</s>
+          </intrinsics>
+        </camera>
+      </sensor>
+
     </link>
   </model>
 </sdf>
