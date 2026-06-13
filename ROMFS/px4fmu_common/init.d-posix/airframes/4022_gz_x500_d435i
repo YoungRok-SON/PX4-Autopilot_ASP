@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# @name Gazebo x500 depth
+# @name Gazebo x500 D435i Vision
 #
 # @type Quadrotor
 #
@@ -8,3 +8,11 @@
 PX4_SIM_MODEL=${PX4_SIM_MODEL:=x500_d435i}
 
 . ${R}etc/init.d-posix/airframes/4001_gz_x500
+
+# EKF2: fuse external vision (ORB-SLAM3 -> /fmu/in/vehicle_visual_odometry)
+# for horizontal/vertical position, 3D velocity and yaw. Use vision as the
+# height reference and disable GPS (warehouse / GPS-denied operation).
+param set-default EKF2_EV_CTRL 15
+param set-default EKF2_EV_DELAY 5
+param set-default EKF2_HGT_REF 3
+param set-default EKF2_GPS_CTRL 0
