@@ -100,6 +100,7 @@ px4_add_romfs_files(
 
 	10015_gazebo-classic_iris
 	10016_none_iris
+	22000_none_anchor_cage_quad
 	10017_jmavsim_iris
 	10018_gazebo-classic_iris_foggy_lidar
 	10019_gazebo-classic_omnicopter
