@@ -97,7 +97,9 @@ param set-default PWM_MAIN_FUNC5 301             # output 5 = actuator set 1 (ma
 # ANCHOR 2027 cage quad - SIMULATION-ONLY parameters (not for the real flight controller). ACDL Son Yeongrok
 # Merged with params_anchor.params by tools/gen_px4_airframe.py into 22000_none_anchor_cage_quad.
 
-param set-default EKF2_EV_DELAY 40               # ms: injector adds 30-50 ms latency to the marker pose (sim stand-in for camera + node delay)
+param set-default EKF2_EV_DELAY 200              # ms: measured sample->PX4 latency of the ROS marker node chain (median 195 ms, ULog T6); replaces the 40 ms of the old truth-based injector
+param set-default MC_PITCHRATE_D 0.0            # SIM ONLY: D=0.0018 limit-cycles at 25 Hz with the 5 ms sim step (pitch rate sd 2.2 rad/s, motors +-0.35); real FC needs its own tuning
+param set-default MC_ROLLRATE_D 0.0             # SIM ONLY: same reason
 param set-default EKF2_OF_DELAY 20               # ms: synthetic flow latency
 param set-default SIM_BAT_ENABLE 1               # PX4 battery simulator (PAS config has no battery sensor in the px4 variant)
 param set-default COM_ARM_MAG_STR 0              # no magnetometer checks in sim
