@@ -87,7 +87,7 @@ param set-default NAV_DLL_ACT 0                  # no GCS link loss action
 param set-default NAV_RCL_ACT 0
 param set-default GF_ACTION 5                    # geofence breach -> Land (enum 5)
 param set-default GF_MAX_HOR_DIST 9.5            # set boundary - 0.5 m: half arena 10 m; home = start stand centre
-param set-default GF_MAX_VER_DIST 4.5            # net height 5 m - 0.5 m
+param set-default GF_MAX_VER_DIST 2.2            # net ceiling 2.5 m (user decision 2026-11-17, was 5 m) - 0.3 m: protect the ceiling net
 param set-default GF_SOURCE 0                    # estimator global position (needs a global origin, see injector)
 
 # --- electromagnet on aux output (Peripheral via Actuator Set 1 -> MAV_CMD_DO_SET_ACTUATOR index 1) ---
