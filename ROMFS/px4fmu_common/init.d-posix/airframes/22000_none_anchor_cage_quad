@@ -109,3 +109,4 @@ param set-default CBRK_SUPPLY_CHK 894281         # no power module on SITL
 param set-default SDLG_PROFILE 1                 # default logging profile  (name kept for ULog analysis)
 param set-default SDLOG_PROFILE 1
 param set-default SYS_AUTOCONFIG 0
+param set-default EKF2_NOAID_TOUT 60000000       # us. SIM ONLY (2026-11-17, course v1 deliver mode): after landing on the pad the down camera cannot see floor markers (camera ~0.05-0.15 m above floor), so the EKF lost its position within the default 5 s and PX4 refused to re-arm ("Arming denied: Resolve system health failures first"). The vehicle is stationary on the ground, so dead reckoning for 60 s is harmless in sim; a real FC needs its own strategy (e.g. a marker under the pad).
