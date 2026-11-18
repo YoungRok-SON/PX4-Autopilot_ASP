@@ -25,20 +25,19 @@ param set-default CA_AIRFRAME 0                  # multirotor
 param set-default CA_ROTOR_COUNT 4
 param set-default CA_ROTOR0_PX 0.078             # FR  (x fwd) TODO(real) motor spacing
 param set-default CA_ROTOR0_PY 0.078             #     (y right)
-param set-default CA_ROTOR0_CT 10               # thrust coef. Only ratios between axes matter, BUT PX4 control_allocator zeroes any axis row whose |CT*KM| <= 0.05 (weak-authority gate). Default CT 6.5 x KM 0.0076 = 0.049 -> yaw row zeroed -> no yaw control. CT 10 x 0.0076 = 0.076 keeps yaw. (evidence/yaw_fix)
-param set-default CA_ROTOR0_KM 0.0076            # CCW, Q/T = 0.00755 m (fdm yaml) TODO(real)
+# Moment ratio KM: PX4 default 0.05 (sign = spin direction, + CCW). 2026-11-18: the earlier estimate 0.0076 (sim Q/T) times the default CT 6.5 = 0.049 fell under PX4's
+# weak-authority gate (control_allocator zeroes a row whose |CT*KM| <= 0.05) -> yaw row deleted -> no yaw control. Real aircraft often keep the default KM; replace with the measured value
+# when known (then check |CT*KM| > 0.05 or raise CT). PX4 normalises the allocation, so this does not change the physical yaw authority in the simulator.
+param set-default CA_ROTOR0_KM 0.05               # CCW
 param set-default CA_ROTOR1_PX -0.078            # RL
 param set-default CA_ROTOR1_PY -0.078
-param set-default CA_ROTOR1_CT 10
-param set-default CA_ROTOR1_KM 0.0076            # CCW
+param set-default CA_ROTOR1_KM 0.05               # CCW
 param set-default CA_ROTOR2_PX 0.078             # FL
 param set-default CA_ROTOR2_PY -0.078
-param set-default CA_ROTOR2_CT 10
-param set-default CA_ROTOR2_KM -0.0076           # CW
+param set-default CA_ROTOR2_KM -0.05              # CW
 param set-default CA_ROTOR3_PX -0.078            # RR
 param set-default CA_ROTOR3_PY 0.078
-param set-default CA_ROTOR3_CT 10
-param set-default CA_ROTOR3_KM -0.0076           # CW
+param set-default CA_ROTOR3_KM -0.05              # CW
 
 # --- rate/attitude gains: iris defaults x ~0.53 ---
 # PX4 rate gains act on normalised torque, so the loop gain scales with torque authority / inertia.
