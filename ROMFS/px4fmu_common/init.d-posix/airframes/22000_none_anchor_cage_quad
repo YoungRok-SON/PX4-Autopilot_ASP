@@ -25,15 +25,19 @@ param set-default CA_AIRFRAME 0                  # multirotor
 param set-default CA_ROTOR_COUNT 4
 param set-default CA_ROTOR0_PX 0.078             # FR  (x fwd) TODO(real) motor spacing
 param set-default CA_ROTOR0_PY 0.078             #     (y right)
+param set-default CA_ROTOR0_CT 10               # thrust coef. Only ratios between axes matter, BUT PX4 control_allocator zeroes any axis row whose |CT*KM| <= 0.05 (weak-authority gate). Default CT 6.5 x KM 0.0076 = 0.049 -> yaw row zeroed -> no yaw control. CT 10 x 0.0076 = 0.076 keeps yaw. (evidence/yaw_fix)
 param set-default CA_ROTOR0_KM 0.0076            # CCW, Q/T = 0.00755 m (fdm yaml) TODO(real)
 param set-default CA_ROTOR1_PX -0.078            # RL
 param set-default CA_ROTOR1_PY -0.078
+param set-default CA_ROTOR1_CT 10
 param set-default CA_ROTOR1_KM 0.0076            # CCW
 param set-default CA_ROTOR2_PX 0.078             # FL
 param set-default CA_ROTOR2_PY -0.078
+param set-default CA_ROTOR2_CT 10
 param set-default CA_ROTOR2_KM -0.0076           # CW
 param set-default CA_ROTOR3_PX -0.078            # RR
 param set-default CA_ROTOR3_PY 0.078
+param set-default CA_ROTOR3_CT 10
 param set-default CA_ROTOR3_KM -0.0076           # CW
 
 # --- rate/attitude gains: iris defaults x ~0.53 ---
@@ -56,26 +60,17 @@ param set-default MPC_ACC_HOR_MAX 1.5
 param set-default MPC_Z_VEL_MAX_UP 1.0
 param set-default MPC_Z_VEL_MAX_DN 1.0
 
-# --- estimator: NO GNSS, external vision (marker localisation) + optical flow + range height ---
+# --- estimator: NO GNSS, external vision (marker localisation) + barometer. Real aircraft has NO downward range sensor and NO optical flow; it uses a barometer. ---
 param set-default EKF2_GPS_CTRL 0                # GNSS fusion off (indoor)
 param set-default EKF2_EV_CTRL 11                # bit0 horizontal pos + bit1 vertical pos + bit3 yaw (marker pose, heading from markers)
 param set-default EKF2_HGT_REF 3                 # height reference = vision
-param set-default EKF2_OF_CTRL 1                 # optical flow fusion on (H-Flow)
-param set-default EKF2_RNG_CTRL 1                # ToF range as height aid (conditional)
-param set-default EKF2_BARO_CTRL 0               # baro off: indoor pressure drift, vision + range give height
+param set-default EKF2_OF_CTRL 0                 # optical flow OFF: the real aircraft has no optical flow sensor
+param set-default EKF2_RNG_CTRL 0                # range finder OFF: the real aircraft has no downward distance sensor
+param set-default EKF2_BARO_CTRL 1               # barometer fusion ON: the real aircraft uses its barometer (height reference stays vision, HGT_REF 3; baro bias is estimated against it)
 param set-default EKF2_MAG_TYPE 5                # magnetometer off (electromagnet interference)
 param set-default SYS_HAS_MAG 0                  # no magnetometer in the system
 param set-default EKF2_EVP_NOISE 0.03            # marker position noise 3 cm (T6 target <= 5 cm)
 param set-default EKF2_EVA_NOISE 0.05            # heading noise rad
-param set-default EKF2_OF_POS_X -0.05            # H-Flow position, FRD (docs T2 table)
-param set-default EKF2_OF_POS_Y 0.04
-param set-default EKF2_OF_POS_Z 0.16
-param set-default EKF2_OF_N_MIN 0.05             # flow noise rad/s: H-Flow class sensor at 1 m (default 0.15 made the filter ignore flow once vision is lost) TODO(real)
-param set-default EKF2_OF_N_MAX 0.15
-param set-default EKF2_OF_GATE 8                 # innovation gate (sigma): flow must be able to pull the velocity back after a vision outage
-param set-default EKF2_RNG_POS_X -0.05           # ToF is on the same board
-param set-default EKF2_RNG_POS_Y 0.04
-param set-default EKF2_RNG_POS_Z 0.16
 
 # --- arming / failsafe (no RC, no GNSS) ---
 param set-default COM_ARM_WO_GPS 1               # arm without GNSS
@@ -100,7 +95,6 @@ param set-default PWM_MAIN_FUNC5 301             # output 5 = actuator set 1 (ma
 param set-default EKF2_EV_DELAY 200              # ms: measured sample->PX4 latency of the ROS marker node chain (median 195 ms, ULog T6); replaces the 40 ms of the old truth-based injector
 param set-default MC_PITCHRATE_D 0.0            # SIM ONLY: D=0.0018 limit-cycles at 25 Hz with the 5 ms sim step (pitch rate sd 2.2 rad/s, motors +-0.35); real FC needs its own tuning
 param set-default MC_ROLLRATE_D 0.0             # SIM ONLY: same reason
-param set-default EKF2_OF_DELAY 20               # ms: synthetic flow latency
 param set-default SIM_BAT_ENABLE 1               # PX4 battery simulator (PAS config has no battery sensor in the px4 variant)
 param set-default COM_ARM_MAG_STR 0              # no magnetometer checks in sim
 param set-default COM_ARM_EKF_AB 0.0             # accel bias check relaxed (simulated IMU, short warm-up)
